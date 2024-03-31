@@ -1,0 +1,2 @@
+test.vpn.com
+test.com
