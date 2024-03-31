@@ -1,5 +1,6 @@
 import requests
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import time
 
@@ -18,11 +19,13 @@ def input_hostname_to_nextdns(hostnames):
     driver.get("https://my.nextdns.io/login")
 
     # Replace 'YOUR_EMAIL' and 'YOUR_PASSWORD' with your NextDNS credentials
-    email_input = driver.find_element_by_xpath("//input[@name='email']")
+    # email_input = driver.find_element("xpath", "//input[@type='email']")
+    email_input = driver.find_element(By.CLASS_NAME,"form-control")
     email_input.send_keys("refa3211@telegmail.com")
 
-    password_input = driver.find_element_by_xpath("//input[@name='password']")
-    password_input.send_keys("R3fa3@#ldns")
+    # password_input = driver.find_element("xpath", "//input[@type='password']")
+    password_input = driver.find_element(By.CLASS_NAME, "form-control")
+    password_input.send_keys("test")
     password_input.send_keys(Keys.RETURN)
 
     time.sleep(5)  # Wait for login
@@ -41,6 +44,6 @@ def input_hostname_to_nextdns(hostnames):
 
 if __name__ == "__main__":
     # Replace 'GITHUB_REPO_URL' with the URL of your GitHub repository containing the hosts list
-    github_repo_url = "GITHUB_REPO_URL"
+    github_repo_url = "https://raw.githubusercontent.com/GeorgeForse/VPN-List/master/list.txt"
     hosts = fetch_hosts_from_github(github_repo_url)
     input_hostname_to_nextdns(hosts)
