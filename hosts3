@@ -1,15 +1,3 @@
-# Title: HaGeZi's Encrypted DNSVPNTORProxy Bypass DNS Blocklist
-# Description: Prevent methods to bypass your DNS, blocks encrypted DNS, VPN, TOR, Proxies.
-# Note: To ensure the bootstrap is your DNS server: Redirect standard DNS outbound (UDP 53) to an internal server. Block all DoT (TCP 853) outbound.
-# Homepage: https:github.comhagezidns-blocklists
-# License: https:github.comhagezidns-blocklistsblobmainLICENSE
-# Issues: https:github.comhagezidns-blocklistsissues
-# Expires: 7 days
-# Last modified: 30 Mar 2024 23:11 UTC
-# Version: 2024.0330.2311.22
-# Syntax: DNSMasq v2.86 or newer
-# Number of entries: 3058
-#
 ns.00dani.me
 cdn.0ms.dev
 dns.0ooo.icu
