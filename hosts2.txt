@@ -1,10 +1,3 @@
-1and1-dns.de
-1clickvpn.net
-1freeproxy.pw
-dns.23-4.cn
-233py.com
-dns.240527.xyz
-24tunnel.com
 doh003.280blocker.net
 2999.info
 2fastsurfer.com
