@@ -22,7 +22,7 @@ def fetch_hosts_from_github(repo_url):
 def input_hostname_to_nextdns(hostnames):
     driver = webdriver.Chrome()  # Assuming you have Chrome WebDriver installed
     driver.get("https://my.nextdns.io/login")
-    time.sleep(1)
+    time.sleep(1.5)
 
     email_input = driver.find_element(By.XPATH, "/html/body/div[1]/div/div/div/div[2]/div/form/div[1]/input")
     email_input.send_keys(user)
@@ -32,23 +32,25 @@ def input_hostname_to_nextdns(hostnames):
 
     password_input.send_keys(Keys.RETURN)
 
-    time.sleep(1)  # Wait for login
-
+    time.sleep(3) 
+    
+    driver.get("https://my.nextdns.io/159376/denylist")
+    time.sleep(1)
     for hostname in hostnames:
         if hostname.strip():
-            driver.get("https://my.nextdns.io/159376/denylist")
+            driver.find_element(By.XPATH, "/html/body/div[1]/div[2]/div/div[2]/div/div/div[1]/form/div/input").clear()
             time.sleep(0.5)  # Wait for page to load
             add_domain_input = driver.find_element(By.XPATH, "/html/body/div[1]/div[2]/div/div[2]/div/div/div[1]/form/div/input")
             add_domain_input.send_keys(hostname)
             print(hostname)
             add_domain_input.send_keys(Keys.RETURN)
-            time.sleep(1)  # Wait for domain to be added
+            time.sleep(0.5)  # Wait for domain to be added
 
     driver.quit()
 
 
-# if __name__ == "__main__":
-#     # # Replace 'GITHUB_REPO_URL' with the URL of your GitHub repository containing the hosts list
-#     # github_repo_url = "https://raw.githubusercontent.com/refa3211/nextedit/main/host"
-#     # hosts = fetch_hosts_from_github(github_repo_url)
-#     # input_hostname_to_nextdns(hosts)
+if __name__ == "__main__":
+    # Replace 'GITHUB_REPO_URL' with the URL of your GitHub repository containing the hosts list
+    github_repo_url = "https://raw.githubusercontent.com/refa3211/nextedit/main/hostsfile"
+    hosts = fetch_hosts_from_github(github_repo_url)
+    input_hostname_to_nextdns(hosts)

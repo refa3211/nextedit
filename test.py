@@ -47,6 +47,6 @@ def input_hostname_to_nextdns(hostnames):
     driver.quit()
 
 if __name__ == "__main__":
-    github_repo_url = "https://raw.githubusercontent.com/refa3211/nextedit/main/host"
+    github_repo_url = "https://raw.githubusercontent.com/refa3211/nextedit/main/hostsfile"
     hosts = fetch_hosts_from_github(github_repo_url)
     input_hostname_to_nextdns(hosts)
