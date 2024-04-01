@@ -32,10 +32,10 @@ def input_hostname_to_nextdns(hostnames):
 
     password_input.send_keys(Keys.RETURN)
 
-    time.sleep(3) 
+    time.sleep(1.5) 
     
     driver.get("https://my.nextdns.io/159376/denylist")
-    time.sleep(1)
+    time.sleep(1.2)
     for hostname in hostnames:
         if hostname.strip():
             driver.find_element(By.XPATH, "/html/body/div[1]/div[2]/div/div[2]/div/div/div[1]/form/div/input").clear()
@@ -44,7 +44,7 @@ def input_hostname_to_nextdns(hostnames):
             add_domain_input.send_keys(hostname)
             print(hostname)
             add_domain_input.send_keys(Keys.RETURN)
-            time.sleep(0.5)  # Wait for domain to be added
+            # Wait for domain to be added
 
     driver.quit()
 
